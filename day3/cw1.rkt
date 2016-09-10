@@ -8,4 +8,5 @@
     [else (list (tree-add1 (first tree)) (tree-add1 (rest tree)))]
   )
 )
-(display (tree-add1 '(3 (1 4)))) (newline)
+(display '(3 (1 4))) (newline)
+(display (tree-add1 '(3 (1 4)))) (newline) (newline)
