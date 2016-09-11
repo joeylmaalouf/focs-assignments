@@ -9,6 +9,7 @@
 (define (calculate x)
   (cond
     [(number? x) x]
+    [(boolean? x) x]
     [(equal? (car x) 'ADD) (+      (calculate (cadr x)) (calculate (caddr x))                       )]
     [(equal? (car x) 'SUB) (-      (calculate (cadr x)) (calculate (caddr x))                       )]
     [(equal? (car x) 'MUL) (*      (calculate (cadr x)) (calculate (caddr x))                       )]
