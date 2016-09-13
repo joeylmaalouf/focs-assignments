@@ -1,12 +1,17 @@
 #lang racket
 
-;;;;;;;;;;
+;;;;;;;;;;;
 ;;; Day 3 in class work
 
-;;;;;;;;;;
+;;;;;;;;;;;
 ;; 0.  Implement factorial both recursively and tail recursively.
 ;;     Hint:  The tail recursive version will use a helper function.
-
+(define (my-factorial n)
+  (cond
+    [(< n 2) n]
+    [else (* n (my-factorial (- n 1)))]
+  )
+)
 
 ;;;;;;;;;;;
 ;; 1.  Filter is built in to scheme.
@@ -17,10 +22,13 @@
 ;; (filter list? '(3 (3 2 1) symbol (4 2) (1 (2) 3)) --> '((3 2 1) (4 2) (1 (2) 3))
 
 ;; Implement it anyway.  You might want to call it my-filter?  What arguments does it take?
-
-
-
-
+(define (my-filter proc lst)
+  (cond
+    [(null? lst) lst]
+    [(proc (first lst)) (cons (first lst) (my-filter proc (rest lst)))]
+    [else (my-filter proc (rest lst))]
+  )
+)
 
 ;;;;;;;;;;;
 ;; 2.  Map is also built in to scheme.
@@ -34,12 +42,12 @@
                                         ;;                (last (rest lst))))
 
 ;; Implement it as well.  You might want to call it my-map.  What arguments does it take?
-
-
-
-
-
-
+(define (my-map proc lst)
+  (cond
+    [(null? lst) lst]
+    [else (cons (proc (first lst)) (my-map proc (rest lst)))]
+  )
+)
 
 ;;;;;;;;;;;
 ;; 3.  While we're reimplementing built-ins, implement my-append (just like built in append)
@@ -50,10 +58,13 @@
 
 ;; You might want to draw out the box and pointer structures for the original two lists
 ;; as well as for the new list.  Confirm with a member of the instructional staff....
-
-
-
-
+(define (my-append lst1 lst2)
+  (cond
+    [(null? lst1) lst2]
+    [(null? lst2) lst1]
+    [else (cons (first lst1) (my-append (rest lst1) lst2))]
+  )
+)
 
 ;;;;;;;;;;;
 ;; 4.  zip takes two lists, and returns a list of elements of size two, until one of the lists runs out.
@@ -62,24 +73,34 @@
 ;; (zip '(1 2 3) '(a b c d e f g)) ;; --> '((1 a) (2 b) (3 c))
 
 ;; Implement `zip`.
+(define (my-zip lst1 lst2)
+  (cond
+    [(null? lst1) empty]
+    [(null? lst2) empty]
+    [else (cons (list (first lst1) (first lst2)) (my-zip (rest lst1) (rest lst2)))]
+  )
+)
 
-
-
-
-;;;;;;;;;;;;
+;;;;;;;;;;;
 ;; 5.  Last built-in (for now):  (my-)reverse.
 ;;     Takes a list, returns a new list with the elements reversed.
 
 ;; (reverse '(1 2 3)) --> '(3 2 1)
+(define (my-reverse lst)
+  (my-reverse-helper lst empty)
+)
+(define (my-reverse-helper lst acc)
+  (cond
+    [(null? lst) acc]
+    [else (my-reverse-helper (rest lst) (cons (first lst) acc))]
+  )
+)
 
-
-
-;;;;;;;;;;;;
-;; More puzzles:
-;;
-;;  - (count elt lst) returns the number of times that elt appears in lst
-;;  - (remove-dups lst) returns a new list that contains the elements of lst but without repeats
-;;       (remove-dups '(1 2 3 1 4 5 2 4 6)) --> '(1 2 3 4 5 6)
-;;  - reverse reverses a list, but doesn't reverse sublists in a tree.  (Try it and see.)
-;;    Write deep-reverse, which reverses all sublists as well.
-;;  - Which of these can you implement using tail recursion?
+;;;;;;;;;;;
+;; Tests
+(my-factorial 4)
+(my-filter even? '(1 2 3 4 5 6))
+(my-map (lambda (x) (+ x 1)) '(1 2 3 4))
+(my-append '(1 2 3) '(4 5 6))
+(my-zip '(1 2 3) '(4 5 6 7 8))
+(my-reverse '(1 2 3 4))
