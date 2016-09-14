@@ -18,6 +18,7 @@
 (define (assq key l-list)
   (cond
     [(null? l-list) #f]
+    [(not (list? l-list)) #f]
     [(equal? key (caar l-list)) (car l-list)]
     [else (assq key (cdr l-list))]
   )
@@ -31,7 +32,25 @@
 ;; `(evaluate 'foo lookup-list)` should return whatever `'foo` is associated with in `lookup-list`.
 
 (define (evaluate expr l-list)
-  expr ; TODO
+  (cond
+    [(number?  expr           ) expr                                                                                                 ]
+    [(boolean? expr           ) expr                                                                                                 ]
+    [(symbol?  expr           ) (cadr (assq expr l-list))                                                                            ]
+    [(equal?   (car expr) 'ADD) (+      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'SUB) (-      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'MUL) (*      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'DIV) (/      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'EQ ) (=      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'NEQ) (not (= (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list))                               )]
+    [(equal?   (car expr) 'GT ) (>      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'LT ) (<      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'GE ) (>=     (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'LE ) (<=     (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'AND) (and    (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'OR ) (or     (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'NOT) (not    (evaluate (cadr expr) l-list)                                                               )]
+    [(equal?   (car expr) 'IPH) (if     (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list) (evaluate (cadddr expr) l-list))]
+  )
 )
 
 
@@ -55,6 +74,8 @@
     (list 'NOT not                         )
   )
 )
-
 (assq 'ADD operator-list) ; --> '(ADD #<procedure:+>)
 (assq 'FOO operator-list) ; --> #f
+
+(evaluate '(ADD x y) '((x 3) (y 2) (z -5))) ; --> 5
+(evaluate '(IPH (GT x 0) x (SUB 0 x)) '((x 3) (y 2) (z -5))) ; --> 3
