@@ -26,36 +26,38 @@
   )
 )
 
-(define variable-list
-  (list
-    (list 'x  3 )
-    (list 'y  2 )
-    (list 'z  -5)
-  )
-)
-
 (define (run)
   (display "Welcome to my repl.") (newline)
   (display "Type some scheme-ish at the prompt.") (newline)
   (display "Type <return> after each expression:") (newline)
-  (repl)
+  (repl empty)
 )
 
-(define (repl)
+(define (repl vars)
   (display "> ")
-  (display (evaluate (read)))
+  (display (evaluate (read) vars))
   (newline)
-  (repl)
+  (repl vars)
 )
 
-(define (evaluate expr)
+(define (assq key l-list)
+  (cond
+    [(null? l-list) #f]
+    [(not (list? l-list)) #f]
+    [(equal? key (caar l-list)) (car l-list)]
+    [else (assq key (cdr l-list))]
+  )
+)
+
+(define (evaluate expr vars)
   (cond
     [(number? expr) expr]
     [(boolean? expr) expr]
-    [(symbol? expr) (cadr (assq expr variable-list))]
+    [(symbol? expr) (cadr (assq expr vars))]
+    [(equal? (car expr) 'DEFINE) (repl (append vars (list (list (cadr expr) (evaluate (caddr expr) vars)))))]
     [else (apply
       (cadr (assq (car expr) operator-list))
-      (map evaluate (cdr expr))
+      (map (lambda (e) (evaluate e vars)) (cdr expr))
     )]
   )
 )
