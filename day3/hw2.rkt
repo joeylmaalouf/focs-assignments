@@ -8,22 +8,22 @@
 
 (define (calculate x)
   (cond
-    [(number?  x           ) x                                                                         ]
-    [(boolean? x           ) x                                                                         ]
-    [(equal?   (car x) 'ADD) (+      (calculate (cadr x)) (calculate (caddr x))                       )]
-    [(equal?   (car x) 'SUB) (-      (calculate (cadr x)) (calculate (caddr x))                       )]
-    [(equal?   (car x) 'MUL) (*      (calculate (cadr x)) (calculate (caddr x))                       )]
-    [(equal?   (car x) 'DIV) (/      (calculate (cadr x)) (calculate (caddr x))                       )]
-    [(equal?   (car x) 'EQ ) (=      (calculate (cadr x)) (calculate (caddr x))                       )]
-    [(equal?   (car x) 'NEQ) (not (= (calculate (cadr x)) (calculate (caddr x)))                      )]
-    [(equal?   (car x) 'GT ) (>      (calculate (cadr x)) (calculate (caddr x))                       )]
-    [(equal?   (car x) 'LT ) (<      (calculate (cadr x)) (calculate (caddr x))                       )]
-    [(equal?   (car x) 'GE ) (>=     (calculate (cadr x)) (calculate (caddr x))                       )]
-    [(equal?   (car x) 'LE ) (<=     (calculate (cadr x)) (calculate (caddr x))                       )]
-    [(equal?   (car x) 'AND) (and    (calculate (cadr x)) (calculate (caddr x))                       )]
-    [(equal?   (car x) 'OR ) (or     (calculate (cadr x)) (calculate (caddr x))                       )]
-    [(equal?   (car x) 'NOT) (not    (calculate (cadr x))                                             )]
-    [(equal?   (car x) 'IPH) (if     (calculate (cadr x)) (calculate (caddr x)) (calculate (cadddr x)))]
+    [(number?  x            ) x                                                                         ]
+    [(boolean? x            ) x                                                                         ]
+    [(equal?   (car x) 'ADD ) (+      (calculate (cadr x)) (calculate (caddr x))                       )]
+    [(equal?   (car x) 'SUB ) (-      (calculate (cadr x)) (calculate (caddr x))                       )]
+    [(equal?   (car x) 'MUL ) (*      (calculate (cadr x)) (calculate (caddr x))                       )]
+    [(equal?   (car x) 'DIV ) (/      (calculate (cadr x)) (calculate (caddr x))                       )]
+    [(equal?   (car x) 'EQ  ) (=      (calculate (cadr x)) (calculate (caddr x))                       )]
+    [(equal?   (car x) 'NEQ ) (not (= (calculate (cadr x)) (calculate (caddr x)))                      )]
+    [(equal?   (car x) 'GT  ) (>      (calculate (cadr x)) (calculate (caddr x))                       )]
+    [(equal?   (car x) 'LT  ) (<      (calculate (cadr x)) (calculate (caddr x))                       )]
+    [(equal?   (car x) 'GE  ) (>=     (calculate (cadr x)) (calculate (caddr x))                       )]
+    [(equal?   (car x) 'LE  ) (<=     (calculate (cadr x)) (calculate (caddr x))                       )]
+    [(equal?   (car x) 'ANND) (and    (calculate (cadr x)) (calculate (caddr x))                       )]
+    [(equal?   (car x) 'ORR ) (or     (calculate (cadr x)) (calculate (caddr x))                       )]
+    [(equal?   (car x) 'NOTT) (not    (calculate (cadr x))                                             )]
+    [(equal?   (car x) 'IPH ) (if     (calculate (cadr x)) (calculate (caddr x)) (calculate (cadddr x)))]
   )
 )
 
@@ -44,7 +44,7 @@
 (calculate '(LE (ADD 3 (MUL 4 5)) (SUB 0 (SUB (ADD 3 4) (MUL 5 6))))) ;; --> #t
 
 ;;; 4. Add boolean operations AND, OR, NOT
-(calculate '(AND (GT (ADD 3 4) (MUL 5 6)) (LE (ADD 3 (MUL 4 5)) (SUB 0 (SUB (ADD 3 4) (MUL 5 6)))))) ;; --> #f
+(calculate '(ANND (GT (ADD 3 4) (MUL 5 6)) (LE (ADD 3 (MUL 4 5)) (SUB 0 (SUB (ADD 3 4) (MUL 5 6)))))) ;; --> #f
 
 ;;; 5. Add IPH
 (calculate '(IPH (GT (ADD 3 4) 7) (ADD 1 2) (ADD 1 3))) ;; -> 4

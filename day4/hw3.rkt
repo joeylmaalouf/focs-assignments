@@ -33,23 +33,23 @@
 
 (define (evaluate expr l-list)
   (cond
-    [(number?  expr           ) expr                                                                                                 ]
-    [(boolean? expr           ) expr                                                                                                 ]
-    [(symbol?  expr           ) (cadr (assq expr l-list))                                                                            ]
-    [(equal?   (car expr) 'ADD) (+      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
-    [(equal?   (car expr) 'SUB) (-      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
-    [(equal?   (car expr) 'MUL) (*      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
-    [(equal?   (car expr) 'DIV) (/      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
-    [(equal?   (car expr) 'EQ ) (=      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
-    [(equal?   (car expr) 'NEQ) (not (= (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list))                               )]
-    [(equal?   (car expr) 'GT ) (>      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
-    [(equal?   (car expr) 'LT ) (<      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
-    [(equal?   (car expr) 'GE ) (>=     (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
-    [(equal?   (car expr) 'LE ) (<=     (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
-    [(equal?   (car expr) 'AND) (and    (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
-    [(equal?   (car expr) 'OR ) (or     (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
-    [(equal?   (car expr) 'NOT) (not    (evaluate (cadr expr) l-list)                                                               )]
-    [(equal?   (car expr) 'IPH) (if     (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list) (evaluate (cadddr expr) l-list))]
+    [(number?  expr            ) expr                                                                                                 ]
+    [(boolean? expr            ) expr                                                                                                 ]
+    [(symbol?  expr            ) (cadr (assq expr l-list))                                                                            ]
+    [(equal?   (car expr) 'ADD ) (+      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'SUB ) (-      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'MUL ) (*      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'DIV ) (/      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'EQ  ) (=      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'NEQ ) (not (= (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list))                               )]
+    [(equal?   (car expr) 'GT  ) (>      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'LT  ) (<      (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'GE  ) (>=     (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'LE  ) (<=     (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'ANND) (and    (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'ORR ) (or     (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list)                                )]
+    [(equal?   (car expr) 'NOTT) (not    (evaluate (cadr expr) l-list)                                                               )]
+    [(equal?   (car expr) 'IPH ) (if     (evaluate (cadr expr) l-list) (evaluate (caddr expr) l-list) (evaluate (cadddr expr) l-list))]
   )
 )
 
@@ -59,19 +59,19 @@
 
 (define operator-list
   (list
-    (list 'ADD +                           )
-    (list 'SUB -                           )
-    (list 'MUL *                           )
-    (list 'DIV /                           )
-    (list 'GT  >                           )
-    (list 'LT  <                           )
-    (list 'GE  >=                          )
-    (list 'LE  <=                          )
-    (list 'EQ  =                           )
-    (list 'NEQ (lambda (x y) (not (= x y))))
-    (list 'AND (lambda (x y) (and x y    )))
-    (list 'OR  (lambda (x y) (or  x y    )))
-    (list 'NOT not                         )
+    (list 'ADD  +                           )
+    (list 'SUB  -                           )
+    (list 'MUL  *                           )
+    (list 'DIV  /                           )
+    (list 'GT   >                           )
+    (list 'LT   <                           )
+    (list 'GE   >=                          )
+    (list 'LE   <=                          )
+    (list 'EQ   =                           )
+    (list 'NEQ  (lambda (x y) (not (= x y))))
+    (list 'ANND (lambda (x y) (and x y    )))
+    (list 'ORR  (lambda (x y) (or  x y    )))
+    (list 'NOTT not                         )
   )
 )
 (assq 'ADD operator-list) ; --> '(ADD #<procedure:+>)
