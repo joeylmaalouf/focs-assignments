@@ -40,26 +40,71 @@
   (repl vars)
 )
 
-(define (assq key l-list)
-  (cond
-    [(null? l-list) #f]
-    [(not (list? l-list)) #f]
-    [(equal? key (caar l-list)) (car l-list)]
-    [else (assq key (cdr l-list))]
-  )
-)
-
 (define (evaluate expr vars)
   (cond
-    [(number? expr) expr]
-    [(boolean? expr) expr]
-    [(symbol? expr) (cadr (assq expr vars))]
-    [(equal? (car expr) 'DEFINE) (repl (append vars (list (list (cadr expr) (evaluate (caddr expr) vars)))))]
-    [else (apply
-      (cadr (assq (car expr) operator-list))
-      (map (lambda (e) (evaluate e vars)) (cdr expr))
-    )]
+    ; number base case
+    [(number? expr)
+      expr
+    ]
+    ; boolean base case
+    [(boolean? expr)
+      expr
+    ]
+    ; variable lookup base case
+    [(symbol? expr)
+      (cadr (assq expr vars))
+    ]
+    ; define variable
+    [(equal? (car expr) 'DEFINE)
+      (repl (append
+        (list (list (cadr expr) (evaluate (caddr expr) vars)))
+        vars
+      ))
+    ]
+    ; lambda creation
+    [(equal? (car expr) 'LAMBDA)
+      (list (quasiquote (unquote expr)) vars)
+    ]
+    ; lambda application
+    [(and (pair? (car expr)) (equal? (caar expr) 'LAMBDA))
+      (evaluate
+        (caddar expr)
+        (append
+          (map list
+            (cadar expr)
+            (map (lambda (e) (evaluate e vars)) (cdr expr))
+          )
+          vars
+        )
+      )
+    ]
+    ; operator evaluation
+    [(assq (car expr) operator-list)
+      (apply
+        (cadr (assq (car expr) operator-list))
+        (map (lambda (e) (evaluate e vars)) (cdr expr))
+      )
+    ]
+    ; function evaluation
+    [else
+      (evaluate
+        (cons (caadr (assq (car expr) vars)) (cdr expr))
+        (cadadr (assq (car expr) vars))
+      )
+    ]
   )
 )
 
 (run)
+
+
+; Tests:
+
+; > ((LAMBDA (x y) (ADD (MUL x x) (MUL y y))) 2 (SUB 4 1))
+; 13
+
+; > (DEFINE a 5)
+; > (DEFINE b 2)
+; > (DEFINE math (LAMBDA (x y) (ADD (DIV (SUB x y) b) a)))
+; > (math 20 4)
+; 13
