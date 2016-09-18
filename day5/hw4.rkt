@@ -3,9 +3,9 @@
 ;;; Student Name: Joey Maalouf
 ;;;
 ;;; Check one:
-;;; [X] I completed this assignment without assistance or external resources.
-;;; [ ] I completed this assignment with assistance from ___
-;;;     and/or using these external resources: ___
+;;; [ ] I completed this assignment without assistance or external resources.
+;;; [X] I completed this assignment with assistance from Dan
+;;;     and/or using these external resources: docs.racket-lang.org
 
 (define operator-list
   (list
@@ -100,9 +100,16 @@
 
 ; Tests:
 
+; defining variables
+; > (DEFINE foo (IPH (GT 2 1) (ADD 6 7) (MUL 5 8)))
+; > foo
+; 13
+
+; evaluating lambda expressions
 ; > ((LAMBDA (x y) (ADD (MUL x x) (MUL y y))) 2 (SUB 4 1))
 ; 13
 
+; defining functions in terms of lambda expressions
 ; > (DEFINE a 5)
 ; > (DEFINE b 2)
 ; > (DEFINE math (LAMBDA (x y) (ADD (DIV (SUB x y) b) a)))
