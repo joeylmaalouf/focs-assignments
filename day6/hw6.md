@@ -28,7 +28,7 @@ Transition table:
 |                 | __0__           | __1__           |
 |-----------------|-----------------|-----------------|
 | _q<sub>0</sub>_ | _q<sub>0</sub>_ | _q<sub>1</sub>_ |
-| _q<sub>1</sub>_ | _q<sub>2</sub>_ | _q<sub>1</sub>_ |
+| _q<sub>1</sub>_ | _q<sub>2</sub>_ | _q<sub>0</sub>_ |
 | _q<sub>2</sub>_ | _q<sub>0</sub>_ | _q<sub>3</sub>_ |
 | _q<sub>3</sub>_ | _q<sub>0</sub>_ | _q<sub>4</sub>_ |
 | _q<sub>4</sub>_ | _q<sub>4</sub>_ | _q<sub>4</sub>_ |
