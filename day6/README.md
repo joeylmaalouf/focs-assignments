@@ -37,9 +37,7 @@ Hint for everyone:  This problem is easier if your answer is nondeterministic.
 
 [* You are strongly encouraged to try this problem.  You are also encouraged not to get caught up in it if you are going around in circles.]
 
-### Part 2: Regular expressions
-
-<Oliver insert anything you want as a pre-assignment here, possibly including reading Sipser section 1.3 Regular Expressions (and/or 1.4 Nonregular Languages) or Stuart pp.79-103).>
+## Part 2: Regular expressions
 
 ### 5. Reading
 
