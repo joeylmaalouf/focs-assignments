@@ -40,8 +40,14 @@ Transition table:
 ## 4.
 
 
-## 5.
+## 5. Reading
+
+Done.
 
 
-## 6.
+## 6. Regular Expression Practice
+
+`0*10*`
+
+The first `0*` matches any number of 0s, then the `1` matches just one 1, then the other `0*` matches any number of 0s. This lets us catch anything from a 1 surrounded by no 0s to a 1 surrounded by infinitely many 0s, but it will not accept anything that has more or less than exactly one 1.
 
