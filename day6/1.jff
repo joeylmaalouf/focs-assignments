@@ -3,25 +3,25 @@
 	<automaton>
 		<!--The list of states.-->
 		<state id="0" name="q0">
-			<x>165.0</x>
-			<y>170.0</y>
+			<x>160.0</x>
+			<y>160.0</y>
 			<initial/>
 		</state>
 		<state id="1" name="q1">
 			<x>260.0</x>
-			<y>170.0</y>
+			<y>160.0</y>
 		</state>
 		<state id="2" name="q2">
-			<x>362.0</x>
-			<y>170.0</y>
+			<x>360.0</x>
+			<y>160.0</y>
 		</state>
 		<state id="3" name="q3">
-			<x>473.0</x>
-			<y>170.0</y>
+			<x>460.0</x>
+			<y>160.0</y>
 		</state>
 		<state id="4" name="q4">
-			<x>599.0</x>
-			<y>170.0</y>
+			<x>560.0</x>
+			<y>160.0</y>
 			<final/>
 		</state>
 		<!--The list of transitions.-->
