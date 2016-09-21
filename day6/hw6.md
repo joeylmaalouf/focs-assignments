@@ -34,7 +34,9 @@ Transition table:
 | _q<sub>4</sub>_ | _q<sub>4</sub>_ | _q<sub>4</sub>_ |
 
 
-## 3.
+## 3. Larger alphabet
+
+Yes, a machine that can accept strings over `{a, b, c, d}` is more powerful than a machine that can accept strings over `{0, 1}`. This is because the `abcd` machine can do everything that the `01` machine can, and more; it can perfectly mimic the `01` machine by swapping `0` for `a` and `1` for `b`, but it can also accept more complex cases (or the same cases in a simpler manner) by also using `c` and `d`.
 
 
 ## 4.
