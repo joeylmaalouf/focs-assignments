@@ -43,6 +43,10 @@ Yes, a machine that can accept strings over `{a, b, c, d}` is more powerful than
 
 To make an automaton that recognizes L_reverse, you should be able to just reverse everything in the automaton that recognizes L. Make the initial state into the final state, make the final state into the initial state, and flip all of the transitions to go the other way.
 
+The example that made me get it:
+
+![](4.png)
+
 
 ## 5. Reading
 
