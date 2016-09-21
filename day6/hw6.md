@@ -39,7 +39,9 @@ Transition table:
 Yes, a machine that can accept strings over `{a, b, c, d}` is more powerful than a machine that can accept strings over `{0, 1}`. This is because the `abcd` machine can do everything that the `01` machine can, and more; it can perfectly mimic the `01` machine by swapping `0` for `a` and `1` for `b`, but it can also accept more complex cases (or the same cases in a simpler manner) by also using `c` and `d`.
 
 
-## 4.
+## 4. Reverse
+
+To make an automaton that recognizes L_reverse, you should be able to just reverse everything in the automaton that recognizes L. Make the initial state into the final state, make the final state into the initial state, and flip all of the transitions to go the other way.
 
 
 ## 5. Reading
