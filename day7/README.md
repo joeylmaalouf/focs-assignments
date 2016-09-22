@@ -18,7 +18,7 @@ Negative examples: `(()`, `(())`
 
 Positive example: `()(()())()`
 
-Negative examples: `((()))`, `((())())` have three levels of neseting.
+Negative examples: `((()))`, `((())())` have three levels of nesting.
 
 **c**. Construct a regular expression that accepts strings where the parentheses match, with depth <= 3.
 
