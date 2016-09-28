@@ -34,6 +34,10 @@ b) All strings with an equal number of occurrences of the substrings `01` and `1
 
 [`010` is in this language; `000110` is in the language; `0101010` is in the language; but `010101` is not.]
 
+Regular. As long as the string begins and ends with the same character, then it has the same number of `01`s and `10`s, because each time the string switches from one character to the other, it increments one of the two counters, and if it changes again, it increments the other, keeping them equal. It's somewhat reminiscent of the left and right parentheses matching.
+
+`0Σ*0 | 1Σ*1`.
+
 ---
 
 c) All strings (over {0,1}) consisting of a substring _w_ followed by the reverse of the substring.
