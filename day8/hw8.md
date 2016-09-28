@@ -5,9 +5,9 @@ You may edit your answers into this file, or add a separate file in the same dir
 If you add a separate file, please include the following at the top:
 
 ```
-Student Name: Frankly Olin [change to your name]
+Student Name: Joey Maalouf
 Check one:
-[ ] I completed this assignment without assistance or external resources.
+[X] I completed this assignment without assistance or external resources.
 [ ] I completed this assignment with assistance from ___
    and/or using these external resources: ___
 ```
@@ -19,6 +19,12 @@ For each of the following languages, decide whether it is regular.  If it is reg
 a) Strings containing only the symbol a whose length is a power of 2 (*i.e.* length 2^n)
 
 [The strings `a`, `aa`, `aaaa`, and `aaaaaaaa` are in this language; the string `aaaaa` is not.]
+
+Not regular. Proof:
+
+Assume this language _L_ is regular. By the pumping lemma, there is some _p_ such that every _w_ in _L_ of length ≥ _p_ can be split into the substrings _w_ = _xyz_, where |_y_| ≥ 1, |_xy_| ≤ _p_, and for all _i_ ≥ 0, _xy<sup>i</sup>z_ ∈ _L_.
+
+Let _w_ in _L_ be a<sup>2<sup>_n_</sup></sup>.
 
 b) All strings with an equal number of occurrences of the substrings `01` and `10`.
 
