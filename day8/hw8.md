@@ -26,7 +26,7 @@ Not regular. Proof:
 
 Assume this language _L_ is regular. By the pumping lemma, there is some _p_ such that every _w_ in _L_ of length ≥ _p_ can be split into the substrings _w_ = _xyz_, where |_y_| ≥ 1, |_xy_| ≤ _p_, and for all _i_ ≥ 0, _xy<sup>i</sup>z_ ∈ _L_.
 
-Let _w_ ∈ _L_ be `a`<sup>2<sup>_n_</sup></sup>. We know _y_, the repeating segment, consists of 1 or more `a`s. If we pump our _w_ such that _xyz_ becomes _xyyz_, we know that _xyyz_ must also be in _L_. The only way for this to be true is if |_y_| is equal to the difference in two consecutive powers of 2 (minus the lengths of _x_ and _z_). If this is the case, we can pump again and say that _xyyyz_ must also be in _L_. Since we know that no two consecutive sets of powers of 2 have the same difference (i.e. 2<sup>_i_</sup>-2<sup>_i_-1</sup> ≠ 2<sup>_i_+1</sup>-2<sup>_i_</sup>), this can't possibly also be true, and thus we have shown that there is no possible repeating ("pumping") segment for this language, meaning that _L_ is not regular.
+Let _w_ ∈ _L_ be `a`<sup>2<sup>_n_</sup></sup>. We know _y_, the repeating segment, consists of 1 or more `a`s. If we pump our _w_ such that _xyz_ becomes _xyyz_, we know that _xyyz_ must also be in _L_. The only way for this to be true is if |_y_| is equal to the difference in two consecutive powers of 2 (minus the lengths of _x_ and _z_). If this is the case, we can pump again and say that _xyyyz_ must also be in _L_. Since we know that no two consecutive sets of powers of 2 have the same difference (i.e. 2<sup>_i_</sup>-2<sup>_i_-1</sup> ≠ 2<sup>_i_+1</sup>-2<sup>_i_</sup>), this can't possibly also be true, and thus we have shown that there is no possible repeating ("pumping") segment for this language, meaning that our assumption was false and _L_ is not regular.
 
 ---
 
@@ -52,7 +52,7 @@ Not regular. Proof:
 
 Assume this language _L_ is regular. By the pumping lemma, there is some _p_ such that every _w_ in _L_ of length ≥ _p_ can be split into the substrings _w_ = _xyz_, where |_y_| ≥ 1, |_xy_| ≤ _p_, and for all _i_ ≥ 0, _xy<sup>i</sup>z_ ∈ _L_.
 
-Let _v_ ∈ _L_ be some _w__w_<sup>R<sup>.
+Let _v_ ∈ _L_ be some _w_ _w_<sup>R</sup>. We know _y_, the repeating segment, is made up entirely of parts of _w_, _w_<sup>R</sup>, or both. If we pump our _v_ such that _xyz_ becomes _xyyz_, we know that _xyyz_ must also be in _L_. The only way for this to be true is if the first half of _y_ is the end of _w_ and the second half of _y_ is the beginning of _w_, with both halves having equal length. In such a case, we can simply shift/lengthen/shorten our selection by any nonzero amount. Now, any pumping will offset one of the two sides (_w_ and _w_<sup>R</sup>) more than the other, preventing our new string from being in _L_. This contradicts the pumping lemma; thus, we have shown that our assumption is false and _L_ is not regular.
 
 ## 2. Play the pumping game
 
