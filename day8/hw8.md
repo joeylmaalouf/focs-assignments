@@ -48,6 +48,12 @@ c) All strings (over {0,1}) consisting of a substring _w_ followed by the revers
 
 [The strings `00100100` and `11110101011010101111` are in this language; the strings `00100` and `010101 `are not.]
 
+Not regular. Proof:
+
+Assume this language _L_ is regular. By the pumping lemma, there is some _p_ such that every _w_ in _L_ of length ≥ _p_ can be split into the substrings _w_ = _xyz_, where |_y_| ≥ 1, |_xy_| ≤ _p_, and for all _i_ ≥ 0, _xy<sup>i</sup>z_ ∈ _L_.
+
+Let _v_ ∈ _L_ be some _w__w_<sup>R<sup>.
+
 ## 2. Play the pumping game
 
 Play the **pumping game** (referenced on the [Day 8 page](https://sites.google.com/site/focs16fall/in-class-exercises/day-8) and also found at [http://weitz.de/pump/](http://weitz.de/pump/)).  Solve at least two puzzles from that page (that do NOT appear in question 1, above) and provide the word you chose, the substring the computer chose, and your successfully pumped string.
