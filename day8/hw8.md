@@ -16,6 +16,8 @@ Check one:
 
 For each of the following languages, decide whether it is regular.  If it is regular, give a regular expression or finite automaton that recognizes the language.  If it is not regular, demonstrate that using the pumping lemma.
 
+---
+
 a) Strings containing only the symbol a whose length is a power of 2 (*i.e.* length 2^n)
 
 [The strings `a`, `aa`, `aaaa`, and `aaaaaaaa` are in this language; the string `aaaaa` is not.]
@@ -24,11 +26,15 @@ Not regular. Proof:
 
 Assume this language _L_ is regular. By the pumping lemma, there is some _p_ such that every _w_ in _L_ of length ≥ _p_ can be split into the substrings _w_ = _xyz_, where |_y_| ≥ 1, |_xy_| ≤ _p_, and for all _i_ ≥ 0, _xy<sup>i</sup>z_ ∈ _L_.
 
-Let _w_ in _L_ be a<sup>2<sup>_n_</sup></sup>.
+Let _w_ in _L_ be `a`<sup>2<sup>_n_</sup></sup>. We know _y_, the repeating segment, consists of 1 or more `a`s. If we pump our _w_ such that _xyz_ becomes _xyyz_, we know that _xyyz_ must also be in _L_.
+
+---
 
 b) All strings with an equal number of occurrences of the substrings `01` and `10`.
 
 [010 is in this language; `000110` is in the language; `0101010` is in the language; but `010101` is not.]
+
+---
 
 c) All strings (over {0,1}) consisting of a substring _w_ followed by the reverse of the substring.
 
