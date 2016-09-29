@@ -65,13 +65,31 @@ Notation notes:
 
 If you have other questions about notation (or anything else), please post them to [Piazza](https://piazza.com) so that we can clarify for everyone.
 
+---
+
+![](2-4.png)
+
+---
+
 ![](2-15.png)
+
+---
 
 ![](2-18.png)
 
 ## 3. Create a PDA
 
 For one of the non-regular languages in problem 1 or 2 above, create a PDA (preferably in JFLAP) and include it with your completed homework.
+
+---
+
+Problem 2, exercise 4:
+
+L = {a<sup>n</sup>b<sup>k</sup>a<sup>n+k</sup> | k,n ∈ N}
+
+![](3.png)
+
+[(JFLAP file here)](3.jff)
 
 ## 4. Reading
 
