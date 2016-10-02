@@ -5,9 +5,9 @@ You may edit your answers into this file, or add a separate file in the same dir
 If you add a separate file, please include the following at the top:
 
 ```
-Student Name: Frankly Olin [change to your name]
+Student Name: Joey Maalouf
 Check one:
-[ ] I completed this assignment without assistance or external resources.
+[X] I completed this assignment without assistance or external resources.
 [ ] I completed this assignment with assistance from ___
    and/or using these external resources: ___
 ```
@@ -24,11 +24,55 @@ a) All strings (over {0,1}) consisting of a substring _w_ followed by its revers
 
 Give a derivation for `010010`.
 
+```
+S -> 0S0
+S -> 1S1
+S -> ε
+```
+
+`S -> 0S0 -> 01S10 -> 010S010 -> 010010`
+
+---
+
 b) All strings (over {a,b,c}) of the form a^{i}b^{i}c^{j}: an equal number of `a`s and `b`s, followed by any number of `c`s. For example, `aabb`, `aabbcc`, and `aabbcccc`, but not `aaaabbcc`.
+
+```
+S -> aSb
+S -> Sc
+S -> ε
+```
+
+`S -> Sc -> Scc -> Sccc -> Scccc -> aSbcccc -> aaSbbcccc -> aabbcccc`
+
+---
 
 c) All strings (over {a,b,c}) of the form a^{i}b^{j}c^{j}: any number of `a`s, followed by an equal number of `b`s and `c`s. For example, `abbcc`, `aabbcc`, and `aaaabbcc`, but not `aabbccc`.
 
+```
+S -> bSc
+S -> aS
+S -> ε
+```
+
+`S -> aS -> aaS -> aaaS -> aaaaS -> aaaabSc -> aaaabbScc -> aaaabbcc`
+
+---
+
 d) Give two distinct grammars that produce the strings described by the regular expression `(ab)*`: empty, `ab`, `abab`, `ababab`, ….
+
+```
+S -> abS
+S -> ε
+```
+
+`S -> abS -> ababS -> abababS -> ababab`
+
+```
+S -> Sab
+S -> ε
+```
+
+`S -> Sab -> Sabab -> Sababab -> ababab`
 
 ## 4. Ambiguous Grammars
 
