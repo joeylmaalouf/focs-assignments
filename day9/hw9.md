@@ -76,44 +76,44 @@ X -> Xab | ε
 
 Consider the grammar:
 
-    S --> a S | a S b S | epsilon 
+    X --> aX | aXbX | ε 
 
-This grammar is ambiguous. Show in particular that the string `a a b` has
+This grammar is ambiguous. Show in particular that the string `aab` has
 two:
 
 a. parse trees
 
 ```
-   S
- /   \
-a     S
-   / / \ \
-  a S   b S
-    |     |
-    ε     ε
-```
-
-```
-    S
+    X
  / / \ \
-a S   b S
+a X   b X
  / \    |
-a   S   ε
+a   X   ε
     |
     ε
 ```
 
+```
+   X
+ /   \
+a     X
+   / / \ \
+  a X   b X
+    |     |
+    ε     ε
+```
+
 b. leftmost derivations (These are the ones that, starting from the start variable, rewrite the leftmost nonterminal first.)
 
-`S -> aSbS -> aaSbS -> aabS -> aab`
+`X -> aXbX -> aaXbX -> aabX -> aab`
 
-`S -> aS -> aaSbS -> aabS -> aab`
+`X -> aX -> aaXbX -> aabX -> aab`
 
 c. rightmost derivations (These are the ones that, starting from the start variable, rewrite the rightmost nonterminal first.)
 
-`S -> aSbS -> aSb -> aaSb -> aab`
+`X -> aXbX -> aXb -> aaXb -> aab`
 
-`S -> aS -> aaSbS -> aaSb -> aab`
+`X -> aX -> aaXbX -> aaXb -> aab`
 
 Extra Credit/Challenge: Prove that this grammar generates all and only the strings of `a`s and `b`s such that every prefix has at least as many `a`s as `b`s. **Hint: Do the readings!**
 
