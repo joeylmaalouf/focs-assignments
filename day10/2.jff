@@ -56,20 +56,6 @@
 			<from>1</from>
 			<to>1</to>
 			<read/>
-			<pop>T</pop>
-			<push>TxT</push>
-		</transition>
-		<transition>
-			<from>1</from>
-			<to>2</to>
-			<read/>
-			<pop>Z</pop>
-			<push/>
-		</transition>
-		<transition>
-			<from>1</from>
-			<to>1</to>
-			<read/>
 			<pop>E</pop>
 			<push>T</push>
 		</transition>
@@ -79,6 +65,20 @@
 			<read/>
 			<pop>T</pop>
 			<push>a</push>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read/>
+			<pop>T</pop>
+			<push>TxT</push>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read/>
+			<pop>T</pop>
+			<push>(E)</push>
 		</transition>
 		<transition>
 			<from>0</from>
@@ -91,15 +91,15 @@
 			<from>1</from>
 			<to>1</to>
 			<read/>
-			<pop>T</pop>
-			<push>(E)</push>
+			<pop>E</pop>
+			<push>E+E</push>
 		</transition>
 		<transition>
 			<from>1</from>
-			<to>1</to>
+			<to>2</to>
 			<read/>
-			<pop>E</pop>
-			<push>E+E</push>
+			<pop>Z</pop>
+			<push/>
 		</transition>
 	</automaton>
 </structure>
