@@ -5,9 +5,9 @@ You may edit your answers into this file, or add a separate file in the same dir
 If you add a separate file, please include the following at the top.
 In either case, add your name and check one of the boxes.
 
-Student Name: Frankly Olin [change to your name]
+Student Name: Joey Maalouf
 Check one:
-[ ] I completed this assignment without assistance or external resources.
+[X] I completed this assignment without assistance or external resources.
 [ ] I completed this assignment with assistance from ___
     and/or using these external resources: ___
 
