@@ -13,53 +13,56 @@ Check one:
 
 I. Math
 
-In the following problems, we will look at how rapidly different functions grow.  We are interested in figuring out when two functions grow at the same rate.  Our definition of “the same” is:  f(n) grows no faster than g(n) if there is some minimum value for the argument (we’ll call it n0) after which f(n) is no larger than a constant multiple of g(n) -- call it k*g(n).  For example, if f(n) is 367n+1098 and g(n) is 2n, n0 could be 40 and k could be 200:  367n+1098 <= 200*2n for n>40.
+In the following problems, we will look at how rapidly different functions grow. We are interested in figuring out when two functions grow at the same rate. Our definition of “the same” is: f(n) grows no faster than g(n) if there is some minimum value for the argument (we’ll call it n0) after which f(n) is no larger than a constant multiple of g(n) -- call it k*g(n). For example, if f(n) is 367n+1098 and g(n) is 2n, n0 could be 40 and k could be 200: 367n+1098 <= 200*2n for n>40.
 
-For each of the following pairs of functions, identify a multiplier and a minimum value of n for which the first is no larger than the specified multiple of the second.  If you cannot -- if there are no such values -- explain why not.
+For each of the following pairs of functions, identify a multiplier and a minimum value of n for which the first is no larger than the specified multiple of the second. If you cannot -- if there are no such values -- explain why not.
 
 
-  A. 367n+1098      and 2n        [n0 = 40; k=200]
-  B. n^2 + 2n + 6   and 6n^2 - 25
-  C. n^3 + n^2 - 2n and 6n^2 - 25
-  D. 869,438        and 923
-  E. 2^n            and 3^n
-  F. 3^n            and 2^n
-  G. log_2 n        and log_10 n  [NB:  these are intended to be log-base-2 of n and log-base-10 of n]
-  H. log_10 n^2     and log_2 n
+A. 367n+1098      and 2n        | n0 = 40; k = 200
+B. n^2 + 2n + 6   and 6n^2 - 25 | n0 = 3; k = 1
+C. n^3 + n^2 - 2n and 6n^2 - 25 | impossible; n^3 has a higher order of growth than n^2
+D. 869,438        and 923       | n0 = 0; k = 942
+E. 2^n            and 3^n       | n0 = 0; k = 1
+F. 3^n            and 2^n       | impossible; 3^n has a higher order of growth than 2^n
+G. log_2 n        and log_10 n  | n0 = 1; k = 4
+H. log_10 n^2     and log_2 n   | n0 = 1; k = 1
 
+When one function has a higher order of growth than another, no input n0 or coefficient k can change that.
+Identifying these values is only possible if f's order of growth is less than or equal to g's.
+(These answers assume that k must be greater than 0.)
 
 II. Linear data structures
 
-For the following problem, assume that it costs 1 unit to access a structure -- an item in an array, a field in a record you are holding, the first element in a linked list -- whether reading or writing that element.  [Accessing the second element in a linked list costs 2 units if you have a pointer to the list:  1 unit to access the first element/read its “next” pointer, and another unit to access the second element.]
+For the following problem, assume that it costs 1 unit to access a structure -- an item in an array, a field in a record you are holding, the first element in a linked list -- whether reading or writing that element. [Accessing the second element in a linked list costs 2 units if you have a pointer to the list: 1 unit to access the first element/read its “next” pointer, and another unit to access the second element.]
 
-Assume that you have n elements stored in an array and the same n elements stored in a linked list; you have no other references to these data structures.  You may assume that n > 10.  How much does it cost to perform each of the following actions?
+Assume that you have n elements stored in an array and the same n elements stored in a linked list; you have no other references to these data structures. You may assume that n > 10. How much does it cost to perform each of the following actions?
 
-A. Read the value of the first element in the array?  In the list?
+A. Read the value of the first element in the array? In the list?
 a: 1 (access the first and read it)
 l: 1 (iterate to the first and read it)
-B. Read the value of the seventh element in the array?  In the list?
+B. Read the value of the seventh element in the array? In the list?
 a: 1 (access the seventh and read it)
 l: 7 (iterate to the seventh and read it)
-C. Add an element to the array?  [Where is the cheapest place to add it?]  To the list?  [Where is the cheapest place to add it?]
+C. Add an element to the array? [Where is the cheapest place to add it?] To the list? [Where is the cheapest place to add it?]
 a: n (iterate over everything after the location and shift them "right" to make room for the insertion); the end
 l: 1 (set pointer to next node); the beginning
-D. Delete the fifth element from the array?  From the list?
+D. Delete the fifth element from the array? From the list?
 a: n (iterate to the fifth, remove it by iterating over everything after it and shift them "left" to fill the gap)
 l: 5 (iterate to the fifth, remove it by redirecting the pointer that led to it)
-E. Confirm that a particular element -- say x -- is present in the array?  In the list?
+E. Confirm that a particular element -- say x -- is present in the array? In the list?
 a: n (iterate over all n, check each one for equality, stop when found or end reached)
 l: n (iterate over all n, check each one for equality, stop when found or end reached)
-F. Confirm that a particular element -- say y -- is NOT present in the array?  In the list?
+F. Confirm that a particular element -- say y -- is NOT present in the array? In the list?
 a: n (iterate over all n, check each one for equality, stop when found or end reached)
 l: n (iterate over all n, check each one for equality, stop when found or end reached)
 
-Now assume that you can maintain one extra piece of storage for the data structure.  In the case of the array, you may want to maintain a length reference.
+Now assume that you can maintain one extra piece of storage for the data structure. In the case of the array, you may want to maintain a length reference.
 In the case of the linked list, what would be similarly helpful?
 A reference to the last element in the list.
-G. How much would it cost now to add an element to the end of the array?  To add an element to the end of the list?
+G. How much would it cost now to add an element to the end of the array? To add an element to the end of the list?
 a: 1 (access end with length reference, insert there and reallocate if necessary)
 l: 1 (access last element with reference, point it to the new element)
-H. How much would it cost now to delete an element from the array?  From the list?  What if it were the final element?  The penultimate element?
+H. How much would it cost now to delete an element from the array? From the list? What if it were the final element? The penultimate element?
 at some position i:
 a: n (iterate to the element, remove it by iterating over everything after it and shift them "left" to fill the gap)
 l: i (iterate to the element, remove it redirecting the pointer that led to it)
@@ -71,7 +74,7 @@ a: n (iterate to the second-last, remove it by shifting the last "left" to fill 
 l: n (iterate to the second-last, remove it by redirecting the pointer that led to it)
 
 Finally, assume that both the array and the linked list are sorted, i.e., that their elements are in some predictable order (say, comparable by < or <=).
-  J. How much would it cost to confirm that a particular element -- say x -- is present in the array?  In the list?  To confirm that a particular element -- say y -- is not present in the array?  In the list?
+ J. How much would it cost to confirm that a particular element -- say x -- is present in the array? In the list? To confirm that a particular element -- say y -- is not present in the array? In the list?
 present:
 a: n (iterate over all n, check each one for equality, stop when found or end reached or we've passed it in the sorting order)
 l: same as above
