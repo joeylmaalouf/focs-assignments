@@ -18,14 +18,14 @@ In the following problems, we will look at how rapidly different functions grow.
 For each of the following pairs of functions, identify a multiplier and a minimum value of n for which the first is no larger than the specified multiple of the second.  If you cannot -- if there are no such values -- explain why not.
 
 
-  A. 367n+1098     and     2n                  [n0 = 40; k=200]
-  B. n^2 + 2n + 6    and     6n^2 - 25
-  C. n^3 + n^2 - 2n     and     6n^2 - 25
-  D. 869,438    and    923
-  E. 2^n    and    3^n
-  F. 3^n    and    2^n
-  G. log_2 n     and    log_10 n    [NB:  these are intended to be log-base-2 of n and log-base-10 of n]
-  H. log_10 n^2    and     log_2 n
+  A. 367n+1098      and 2n        [n0 = 40; k=200]
+  B. n^2 + 2n + 6   and 6n^2 - 25
+  C. n^3 + n^2 - 2n and 6n^2 - 25
+  D. 869,438        and 923
+  E. 2^n            and 3^n
+  F. 3^n            and 2^n
+  G. log_2 n        and log_10 n  [NB:  these are intended to be log-base-2 of n and log-base-10 of n]
+  H. log_10 n^2     and log_2 n
 
 
 II. Linear data structures
@@ -35,11 +35,23 @@ For the following problem, assume that it costs 1 unit to access a structure -- 
 Assume that you have n elements stored in an array and the same n elements stored in a linked list; you have no other references to these data structures.  You may assume that n > 10.  How much does it cost to perform each of the following actions?
 
   A. Read the value of the first element in the array?  In the list?
+  a: 1 (access the first and read it)
+  l: 1 (iterate to the first and read it)
   B. Read the value of the seventh element in the array?  In the list?
+  a: 1 (access the seventh and read it)
+  l: 7 (iterate to the seventh and read it)
   C. Add an element to the array?  [Where is the cheapest place to add it?]  To the list?  [Where is the cheapest place to add it?]
+  a: n (iterate over everything after the location and shift them "right" to make room for the insertion); the end
+  l: 1 (set pointer to next node); the beginning
   D. Delete the fifth element from the array?  From the list?
+  a: n (iterate to the fifth, remove it by iterating over everything after it and shift them "left" to fill the gap)
+  l: 5 (iterate to the fifth, remove it by redirecting the next pointer)
   E. Confirm that a particular element -- say x -- is present in the array?  In the list?
+  a: n (iterate over all n, check each one for equality, stop when found or end reached)
+  l: n (iterate over all n, check each one for equality, stop when found or end reached)
   F. Confirm that a particular element -- say y -- is NOT present in the array?  In the list?
+  a: n (iterate over all n, check each one for equality, stop when found or end reached)
+  l: n (iterate over all n, check each one for equality, stop when found or end reached)
 
 Now assume that you can maintain one extra piece of storage for the data structure.  In the case of the array, you may want to maintain a length reference.
 In the case of the linked list, what would be similarly helpful?
