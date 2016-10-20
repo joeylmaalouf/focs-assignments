@@ -76,8 +76,8 @@ l: n (iterate to the second-last, remove it by redirecting the pointer that led 
 Finally, assume that both the array and the linked list are sorted, i.e., that their elements are in some predictable order (say, comparable by < or <=).
  J. How much would it cost to confirm that a particular element -- say x -- is present in the array? In the list? To confirm that a particular element -- say y -- is not present in the array? In the list?
 present:
-a: n (iterate over all n, check each one for equality, stop when found or end reached or we've passed it in the sorting order)
-l: same as above
+a: log_2(n) (binary search, checking halfway point and going left or right based on relation to target)
+l: n (iterate over all n, check each one for equality, stop when found or end reached or we've passed it in the sorting order)
 not present:
-a: n (iterate over all n, check each one for equality, stop when found or end reached or we've passed it in the sorting order)
-l: same as above
+a: log_2(n) (binary search, checking halfway point and going left or right based on relation to target)
+l: n (iterate over all n, check each one for equality, stop when found or end reached or we've passed it in the sorting order)
