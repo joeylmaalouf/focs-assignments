@@ -83,6 +83,7 @@ What other tree structures containing three internal nodes -- x, y, and z -- can
 [Hint:  There should be four more shapes.]  
 The relationship among x, y, and z doesn't matter.  For convenience, we've arbitrarily labeled them top to bottom and the subtrees left to right.
 
+a.
 ```
         x
        / \
@@ -98,6 +99,7 @@ The relationship among x, y, and z doesn't matter.  For convenience, we've arbit
 
 Ans: all T1 <= x <= all T2 <= z <= all T3 <= y <= all T4
 
+b.
 ```
           x
          / \
@@ -113,6 +115,7 @@ T1     T2
 
 Ans: all T1 <= z <= all T2 <= y <= all T3 <= x <= all T4
 
+c.
 ```
     x
    / \
@@ -128,6 +131,7 @@ T1     y
 
 Ans: all T1 <= x <= all T2 <= y <= all T3 <= z <= all T4
 
+d.
 ```
           x
        /     \
@@ -145,16 +149,16 @@ Ans: all T1 <= y <= all T2 <= x <= all T3 <= z <= all T4
 
 It is desirable for binary search trees to be balanced (or close).  If we assume that each of the T structures has the same depth, the two-internal-node trees have the following property:
 
-For EVERY internal node (x and y), the depth of the internal node's left subtree and the depth of the internal node's right subtree differ by at most 1.  We call these trees almost-balanced.  
+For EVERY internal node (x, y, z), the depth of the internal node's left subtree and the depth of the internal node's right subtree differ by at most 1.  We call these trees almost-balanced.  
 
-
-### 5. 
+### 5.
 
 Does this property hold for any of the three-internal-node trees?  Which ones?  Which ones are NOT almost-balanced?  (We call these unbalanced.)
 
+It holds for d, but not for a, b, or c.
+
 
 ## IV.  Maintaining balance
-
 
 Observe the following:
 
@@ -164,8 +168,6 @@ If you are given a binary tree of the form in question 1, you can transform them
 ### 6. 
 
 Use this insight to show how to modify each of the unbalanced tree forms with three internal nodes into an almost-balanced tree that preserves the binary search property.
-
-
 
 
 ## V.  Rebalancing
@@ -193,7 +195,6 @@ For EVERY internal node (x and y), the depth of the internal node's left subtree
 ```
 
 
-
 ### 8. 
 
 Insert the value 13 into this tree.  Where does it go?  Is the resulting tree almost-balanced?  If not, see #11.
@@ -202,6 +203,7 @@ Insert the value 13 into this tree.  Where does it go?  Is the resulting tree al
 ### 9. 
 
 Insert the value 17 into the tree.  Where does it go?  Is the resulting tree almost-balanced?  If not, see #11.
+
 
 ### 10. 
 
@@ -216,14 +218,3 @@ Use the work you've done above to rebalance the tree.  Start at the newly insert
 ### 12. 
 
 [Challenge] Assuming that a tree is almost-balanced when you make an insertion, and that that insertion may violate the almost-balanced property, can almost-balance always be restored solely by climbing the  path from the newly inserted node to the root?  Will you ever have to descend another branch?  Why or why not?
-
-
-
-
-
-
-
-
-
-
-
