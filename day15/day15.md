@@ -16,7 +16,6 @@ Check one:
 
 ## I. Binary search tree ordering
 
-
 Assume that the following tree structures are all properly constructed binary search trees, preserving the binary search property that any (internal) node's left child is smaller than the internal node and its right child is larger (or of equal value).  
 
 Anything labeled with a T can be assumed to be a (possibly empty) subtree (i.e., may contain zero or more nodes); anything labeled with a lower case letter is a single node.
@@ -75,6 +74,7 @@ Ans: all T1 <= d <= all T2 <= e <= all T3
 
 Ans: all T1 <= g <= all T2 <= h <= all T3 <= f <= all T4
 
+
 ## II.  Extending this analogy:  drawing trees.
 
 ### 4. 
@@ -83,15 +83,62 @@ What other tree structures containing three internal nodes -- x, y, and z -- can
 [Hint:  There should be four more shapes.]  
 The relationship among x, y, and z doesn't matter.  For convenience, we've arbitrarily labeled them top to bottom and the subtrees left to right.
 
+```
+        x
+       / \
+      /   \
+    T1     y
+          / \
+         /   \
+        z     T4
+       / \
+      /   \
+    T2     T3
+```
 
+Ans: all T1 <= x <= all T2 <= z <= all T3 <= y <= all T4
 
+```
+          x
+         / \
+        /   \
+       y     T4
+      / \
+     /   \
+    z     T3
+   / \
+  /   \
+T1     T2
+```
 
+Ans: all T1 <= z <= all T2 <= y <= all T3 <= x <= all T4
 
+```
+    x
+   / \
+  /   \
+T1     y
+      / \
+     /   \
+   T2     z
+         / \
+        /   \
+      T3     T4
+```
 
-<expand as needed>
+Ans: all T1 <= x <= all T2 <= y <= all T3 <= z <= all T4
 
+```
+          x
+       /     \
+      /       \
+     y         z
+    / \       / \
+   /   \     /   \
+ T1     T2 T3     T4
+```
 
-
+Ans: all T1 <= y <= all T2 <= x <= all T3 <= z <= all T4
 
 
 ## III.  Observing balance
