@@ -6,9 +6,9 @@ You may edit your answers into this file, or add a separate file in the same dir
 If you add a separate file, please include the following at the top:
 
 ```
-Student Name: Frankly Olin [change to your name]
+Student Name: Joey Maalouf
 Check one:
-[ ] I completed this assignment without assistance or external resources.
+[X] I completed this assignment without assistance or external resources.
 [ ] I completed this assignment with assistance from ___
    and/or using these external resources: ___
 ```
@@ -31,7 +31,7 @@ What inequalities must hold in each of these trees?
     T1     T2
 ```
 
-Ans:  all elements of TI <= x <= all elements of T2
+Ans: all T1 <= a <= all T2
 
 ### 1.
 ```
@@ -44,9 +44,7 @@ Ans:  all elements of TI <= x <= all elements of T2
  T1    T2
 ```
 
-Ans:  
-
-
+Ans: all T1 <= c <= all T2 <= b <= all T3
 
 ### 2.
 ```
@@ -59,9 +57,7 @@ Ans:
        T2    T3
 ```
 
-Ans:  
-
-
+Ans: all T1 <= d <= all T2 <= e <= all T3
 
 ### 3.
 ```
@@ -77,9 +73,7 @@ Ans:
     T2     T3
 ```
 
-Ans:  
-
-
+Ans: all T1 <= g <= all T2 <= h <= all T3 <= f <= all T4
 
 ## II.  Extending this analogy:  drawing trees.
 
