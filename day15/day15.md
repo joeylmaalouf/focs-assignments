@@ -155,7 +155,7 @@ For EVERY internal node (x, y, z), the depth of the internal node's left subtree
 
 Does this property hold for any of the three-internal-node trees?  Which ones?  Which ones are NOT almost-balanced?  (We call these unbalanced.)
 
-It holds for d, but not for a, b, or c.
+It holds for 4d, but not for 3, 4a, 4b, or 4c.
 
 
 ## IV.  Maintaining balance
@@ -168,6 +168,70 @@ If you are given a binary tree of the form in question 1, you can transform them
 ### 6. 
 
 Use this insight to show how to modify each of the unbalanced tree forms with three internal nodes into an almost-balanced tree that preserves the binary search property.
+
+3.
+```
+        x                    z
+       / \                /     \
+      /   \              /       \
+     y     T4           y         x
+    / \          =>    / \       / \
+   /   \              /   \     /   \
+ T1     z           T1     T2 T3     T4
+       / \
+      /   \
+    T2     T3
+```
+
+Ans: still all T1 <= y <= all T2 <= z <= all T3 <= x <= all T4
+
+4a.
+```
+        x                    z
+       / \                /     \
+      /   \              /       \
+    T1     y            x         y
+          / \    =>    / \       / \
+         /   \        /   \     /   \
+        z     T4    T1     T2 T3     T4
+       / \
+      /   \
+    T2     T3
+```
+
+Ans: still all T1 <= x <= all T2 <= z <= all T3 <= y <= all T4
+
+4b.
+```
+          x                 y
+         / \             /     \
+        /   \           /       \
+       y     T4        z         x
+      / \       =>    / \       / \
+     /   \           /   \     /   \
+    z     T3       T1     T2 T3     T4
+   / \
+  /   \
+T1     T2
+```
+
+Ans: still all T1 <= z <= all T2 <= y <= all T3 <= x <= all T4
+
+4c.
+```
+    x                       y
+   / \                   /     \
+  /   \                 /       \
+T1     y               x         z
+      / \       =>    / \       / \
+     /   \           /   \     /   \
+   T2     z        T1     T2 T3     T4
+         / \
+        /   \
+      T3     T4
+```
+
+Ans: still all T1 <= x <= all T2 <= y <= all T3 <= z <= all T4
 
 
 ## V.  Rebalancing
