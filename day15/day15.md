@@ -258,27 +258,107 @@ For EVERY internal node (x and y), the depth of the internal node's left subtree
                  18
 ```
 
+Yes, this tree is almost-balanced.
+
 
 ### 8. 
 
 Insert the value 13 into this tree.  Where does it go?  Is the resulting tree almost-balanced?  If not, see #11.
+
+```
+         8
+        / \
+       /   \
+      6     14
+     /\      /\  
+    /  \    /  \ 
+   3   7   12   16  
+  /\      /\     /\ 
+ /  \    /  \   /  \ 
+2    5  10  13 15   20
+                   /
+                  /
+                 18
+```
+
+Yes, this tree is almost-balanced.
 
 
 ### 9. 
 
 Insert the value 17 into the tree.  Where does it go?  Is the resulting tree almost-balanced?  If not, see #11.
 
+```
+         8
+        / \
+       /   \
+      6     14
+     /\      /\  
+    /  \    /  \ 
+   3   7   12   16  
+  /\      /\     /\ 
+ /  \    /  \   /  \ 
+2    5  10  13 15   20
+                   /
+                  /
+                 18
+                /
+               /
+              17
+```
+
+No, this tree is not almost-balanced.
+
 
 ### 10. 
 
 Insert the value 4 into the tree.  Where does it go?  Is the resulting tree almost-balanced?  If not, see #11.
+
+```
+         8
+        / \
+       /   \
+      6     14
+     /\      /\  
+    /  \    /  \ 
+   3   7   12   16  
+  /\      /\     /\ 
+ /  \    /  \   /  \ 
+2    5  10  13 15   20
+    /              /
+   /              /
+  4              18
+                /
+               /
+              17
+```
+
+No, this tree is not almost-balanced.
 
 
 ### 11. 
 
 Use the work you've done above to rebalance the tree.  Start at the newly inserted value; work up until you find an internal node that has left and right children whose depth differs by more than one.  Rebalance that subtree using the processes you created in #6.  Continue to climb the tree, rebalancing any unbalanced (not almost-balanced) nodes as you go up.
 
+```
+           8
+        /     \
+       /       \
+      5         14
+     / \        / \  
+    /   \      /   \ 
+   3     7    12    16  
+  /\     /    /\     /\ 
+ /  \   /    /  \   /  \ 
+2   4   6   10  13 15   18
+                        /\
+                       /  \
+                      17  20
+```
+
 
 ### 12. 
 
 [Challenge] Assuming that a tree is almost-balanced when you make an insertion, and that that insertion may violate the almost-balanced property, can almost-balance always be restored solely by climbing the  path from the newly inserted node to the root?  Will you ever have to descend another branch?  Why or why not?
+
+You will sometimes have to descend into another branch. Rearranging the nodes to re-balance the tree might end up un-balancing another branch, so you'll have to climb through it to re-balance that one.
