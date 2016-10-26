@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="575 395 92 83" width="92pt" height="83pt" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <metadata> Produced by OmniGraffle 7.0.3 
+    <dc:date>2016-10-25 02:54:14 +0000</dc:date>
+  </metadata>
+  <defs>
+    <font-face font-family="Helvetica Neue" font-size="16" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="500">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" viewBox="-1 -4 10 8" markerWidth="10" markerHeight="8" color="black">
+      <g>
+        <path d="M 8 0 L 0 -3 L 0 3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+  </defs>
+  <g stroke="none" stroke-opacity="1" stroke-dasharray="none" fill="none" fill-opacity="1">
+    <title>Canvas 1</title>
+    <g>
+      <title>Layer 1</title>
+      <circle cx="589.5" cy="409.5" r="13.500022" fill="#d6d6d6"/>
+      <circle cx="589.5" cy="409.5" r="13.500022" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(583.7 400.276)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="16" font-weight="500" x="1.352" y="15" textLength="8.896">1</tspan>
+      </text>
+      <circle cx="652.5" cy="409.5" r="13.500022" fill="#d6d6d6"/>
+      <circle cx="652.5" cy="409.5" r="13.500022" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(646.7 400.276)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="16" font-weight="500" x="1.352" y="15" textLength="8.896">2</tspan>
+      </text>
+      <circle cx="589.5" cy="463.5" r="13.500022" fill="#d6d6d6"/>
+      <circle cx="589.5" cy="463.5" r="13.500022" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(583.7 454.276)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="16" font-weight="500" x="1.352" y="15" textLength="8.896">3</tspan>
+      </text>
+      <circle cx="652.5" cy="463.5" r="13.500022" fill="#d6d6d6"/>
+      <circle cx="652.5" cy="463.5" r="13.500022" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(646.7 454.276)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="16" font-weight="500" x="1.352" y="15" textLength="8.896">4</tspan>
+      </text>
+      <line x1="603" y1="409.5" x2="629.1" y2="409.5" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <line x1="603" y1="463.5" x2="629.1" y2="463.5" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <line x1="599.75045" y1="454.7139" x2="634.7329" y2="424.72893" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <line x1="652.5" y1="423" x2="652.5" y2="440.1" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <line x1="589.5" y1="450" x2="589.5" y2="432.9" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    </g>
+  </g>
+</svg>
