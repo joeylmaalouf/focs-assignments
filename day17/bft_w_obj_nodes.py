@@ -1,19 +1,15 @@
 """
 FOCS Graph library
-
-This represents a graph
-
+This represents a graph.
 Author : Oliver Steele <oliver.steele@olin.edu>
 Date   : 2016-10-27
 License: MIT License
 """
-
-from queue import Queue
+from Queue import Queue
 
 
 class Graph(object):
     """A minimal graph using adjacency lists.
-
     This implementation includes a utility function to retrieve the node with a given label.
     This makes sense iff nodes are objects with a `label` attribute.
     """
@@ -42,9 +38,10 @@ class Node(object):
 
     def __init__(self, label):
         self.label = label
+        self.parent = None                     # <---
 
     def __repr__(self):
-        return self.label
+        return "{0}, child of {1}".format(self.label, self.parent.label if self.parent else self.parent)
 
 
 def bfs(graph, start):
@@ -55,6 +52,7 @@ def bfs(graph, start):
         print(node)
         visited.add(node)
         for tail in graph.successors(node):
+            tail.parent = node                 # <---
             if tail not in visited:
                 remaining_nodes.put(tail)
 
@@ -68,14 +66,13 @@ def node_and_edge_labels_to_objects(node_labels, edge_labels):
     """Given a list of node labels, and a list of edges of the form (head_label, tail_label),
     create and return a list of Node instances with those labels, and a corresponding list of
     edges whose head and tail are those instances."""
-    
     nodes = [Node(label) for label in node_labels]
     find_node = {node.label: node for node in nodes}.get
     edges = [(find_node(h), find_node(t)) for (h, t) in edge_labels]
     return nodes, edges
 
+
 node_labels = ['a', 'b', 'c', 'd', 'e']
 edge_labels = [('a', 'b'), ('a', 'c'), ('b', 'd'), ('b', 'e'), ('e', 'a')]
-
 g = Graph(*node_and_edge_labels_to_objects(node_labels, edge_labels))
 bfs(g, g.find_node('a'))
