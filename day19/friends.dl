@@ -1,0 +1,12 @@
+#lang datalog
+
+likes(amy, susan).
+likes(susan, amy).
+likes(amy, mark).
+likes(lola, mark).
+likes(brewster, mark).
+likes(brewster, lucky).
+likes(amy, tyrion).
+likes(tyrion, amy).
+likes(susan, tyrion).
+likes(tyrion, susan).

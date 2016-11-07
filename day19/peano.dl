@@ -1,0 +1,20 @@
+#lang datalog
+
+% model
+% s(M, N) means N is the successor of M.
+s(0, 1).
+s(1, 2).
+s(2, 3).
+s(3, 4).
+s(4, 5).
+s(5, 6).
+
+% sum axioms
+sum(A, B, C) :- A=C, B=0.
+sum(A, SB, SC) :- sum(A, B, C), s(B, SB), s(C, SC).
+
+number(0).
+number(N) :- s(M, N).
+
+% product axioms
+product(A, B, C) :- number(A), B=0, C=0.
